@@ -1,19 +1,28 @@
 
 import React from "react";
+import Form from 'react-bootstrap/Form'
 
-const SelectStatus = ({ status, setStatus }) => {
+const options = [
+  { value: '', label: 'All' },
+  { value: 'Alive', label: 'Alive' },
+  { value: 'Dead', label: 'Dead' },
+  { value: 'unknown', label: 'Unknown' }
+];
+
+const SelectStatus = ({ statusFilter, setStatusFilter }) => {
   const handleSelectChange = (event) => {
-    setStatus(event?.target?.value);
+    setStatusFilter(event.target.value);
   };
 
   return (
-    <div>
-      <select value={status} onChange={handleSelectChange}>
-        <option value="">All</option>
-        <option value="Alive">Alive</option>
-        <option value="Dead">Dead</option>
-        <option value="unknown">Unknown</option>
-      </select>
+    <div className="col-4">
+      <Form.Select className="bg-dark text-white" value={statusFilter} onChange={handleSelectChange}>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </Form.Select>
     </div>
   );
 };

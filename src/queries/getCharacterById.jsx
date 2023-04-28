@@ -1,32 +1,30 @@
 import { gql } from '@apollo/client';
 
-const GET_CHARACTER_BY_ID = gql`
-  query GetCharacterById($id: ID!) {
-    character(id: $id) {
-      name
-      status
-      species
-      type
-      gender
-      image
-      created
-      origin {
-        name
-        type
-        dimension
+const GET_CHARACTERS = gql`
+  query Characters($page: Int, $name: String, $status: String) {
+    characters(page: $page, filter: { name: $name, status: $status }) {
+      info {
+        count
+        pages
+        next
+        prev
       }
-      location {
-        name
-        type
-        dimension
-      }
-      episode {
+      results {
         id
         name
-        air_date
+        image
+        status
+        species
+        gender
+        location {
+          name
+        }
+        episode {
+          air_date
+        }
       }
     }
   }
 `;
 
-export default GET_CHARACTER_BY_ID;
+export default GET_CHARACTERS;

@@ -1,17 +1,20 @@
 import React from "react";
+import Form from 'react-bootstrap/Form'
 
-const SearchName = ({ searchTerm, setSearchTerm }) => {
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
+const SearchName = ({ nameFilter, setNameFilter }) => {
+  const handleNameFilterChange = (event) => {
+    event.preventDefault();
+    setNameFilter(event?.target?.value);
   };
 
   return (
-    <div>
-      <input
+    <div className="col-4">
+      <Form.Control
+        className="bg-dark text-white"
         type="text"
-        placeholder="Search by name"
-        value={searchTerm}
-        onChange={handleInputChange}
+        placeholder="Character Name"
+        value={nameFilter}
+        onChange={handleNameFilterChange}
       />
     </div>
   );

@@ -34,10 +34,10 @@ const ImageCard = ({ character }) => {
                         {status} - {species}
                     </p>
                     
-                    <p>Last known location:</p>
+                    <h5 className="text-black">Last known location:</h5>
                     <p>{location.name}</p>
 
-                    <p>First seen in:</p>
+                    <h5 className="text-black">First seen in:</h5>
                     <p>{episode[0].air_date}</p>
                 </div>
             </Row>
