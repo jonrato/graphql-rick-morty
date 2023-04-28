@@ -20,6 +20,7 @@ const GET_CHARACTERS = gql`
           name
         }
         episode {
+          name
           air_date
         }
       }

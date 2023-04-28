@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
-import ReactPaginate from "react-paginate";
+
 const ImageCard = ({ character }) => {
     const { name, image, status, species, gender, location, episode } = character;
-    const [styleStatus, setStyleStatus] = useState('dotOn')
+    const [styleStatus, setStyleStatus] = useState('')
     const verifyStatus = () => {
         if (status === 'Alive'){
             setStyleStatus('dotOn')
@@ -38,7 +38,7 @@ const ImageCard = ({ character }) => {
                     <p>{location.name}</p>
 
                     <h5 className="text-black">First seen in:</h5>
-                    <p>{episode[0].air_date}</p>
+                    <p>{episode[0].name}</p>
                 </div>
             </Row>
         </Card>

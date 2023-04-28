@@ -1,6 +1,6 @@
 # Rick & Morty - API
 
-## RUN
+## Install & Run
 ``` bash
     npm install
     npm start
